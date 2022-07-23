@@ -48,7 +48,7 @@ export const Logueo = ()=>{
                         </Link>
                     </div>
                     <div style={{marginTop:"20px", textAlign:"center"}}>
-                        <Button variant="contained" size="large">Ingresar</Button>
+                        <Button variant="contained" size="large" fullWidth>Ingresar</Button>
                     </div>
                 </Box>
             </div>

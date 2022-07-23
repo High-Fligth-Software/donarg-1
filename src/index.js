@@ -10,7 +10,7 @@ import {
   Route,
 } from "react-router-dom";
 const root = ReactDOM.createRoot(document.getElementById('root'));
-document.body.style.backgroundColor = "#179fcd";
+document.body.style.backgroundColor = "#1976d2";
 root.render(
   <BrowserRouter>
     <Routes>
