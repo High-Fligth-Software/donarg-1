@@ -11,3 +11,14 @@
     -webkit-box-shadow: 2px 2px 5px #999;
 
 }
+
+.divImage{
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+}
+
+.divLogo{
+    display: flex;
+    justify-content: center;
+}

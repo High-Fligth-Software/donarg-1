@@ -1,5 +1,6 @@
 import React from 'react'
-import { Grid,TextField, Typography} from '@mui/material';
+import { Grid,TextField, Typography, Button } from '@mui/material';
+import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
 import './FormPersoaFisica.css'
 
 export const FormPersonaFisica = () => {
@@ -48,6 +49,9 @@ export const FormPersonaFisica = () => {
         </Grid>
         
       </Grid>
+      <div style={{marginTop:"4%"}}>
+        <Button fullWidth variant="contained" size="lg">LISTO <SendOutlinedIcon/></Button>
+      </div>
     </div>
   )
 }

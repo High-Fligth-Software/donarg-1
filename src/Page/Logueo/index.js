@@ -1,20 +1,21 @@
-import {Box, Typography, Grid, FormControl,InputLabel,OutlinedInput, InputAdornment, Link, Button} from '@mui/material';
+import {Grid, FormControl,InputLabel,OutlinedInput, InputAdornment, Link, Button} from '@mui/material';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LockIcon from '@mui/icons-material/Lock';
 import './Logueo.css'
 import { useNavigate  } from 'react-router-dom'
+import nexo from '../../imagenes/Nexo.png'
+import donarg from '../../imagenes/donARG.PNG'
 export const Logueo = ()=>{
     const navigate = useNavigate();
 
 
 
     return(
-        <div>
+        <div class="divMayor">
             <div class="LoginForm">
-                <Box sx={{}} >
-                <Typography variant="h3" gutterBottom component="div">
-                    Bienvenido a donARG
-                </Typography>
+                <div class="divLogo">
+                    <img src={donarg} alt="hola" width="300px" height="70px"/>
+                </div>
                     <Grid container spacing={2}   justifyContent="center" alignItems="center" direction="column">
                         <Grid item xs={12} md={12} lg={12}>
                             <FormControl fullWidth sx={{ m: 1 }}>
@@ -50,7 +51,10 @@ export const Logueo = ()=>{
                     <div style={{marginTop:"20px", textAlign:"center"}}>
                         <Button variant="contained" size="large" fullWidth>Ingresar</Button>
                     </div>
-                </Box>
+
+            </div>
+            <div class='divImage'>
+                <img src={nexo} alt="hola" width="400px" height="100px"/>
             </div>
         </div>
 

@@ -10,7 +10,9 @@ import {
   Route,
 } from "react-router-dom";
 const root = ReactDOM.createRoot(document.getElementById('root'));
-document.body.style.backgroundColor = "#1976d2";
+//document.body.style.backgroundColor = "#1976d2";
+//document.body.style.backgroundColor = "#FFFFFF";
+document.body.style.backgroundImage = "url(https://static.vecteezy.com/system/resources/previews/004/449/825/original/donation-center-visit-2d-isolated-illustration-non-profit-foundation-help-happy-volunteers-flat-characters-on-cartoon-background-contributing-to-social-service-organizations-colourful-scene-vector.jpg)"
 root.render(
   <BrowserRouter>
     <Routes>
