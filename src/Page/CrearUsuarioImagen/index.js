@@ -1,26 +1,51 @@
 import React ,{useState} from 'react'
-import { Grid, Typography, Button } from '@mui/material';
+import { Grid, Typography, Button, TextField, FilledInput  } from '@mui/material';
 import FaceRetouchingNaturalIcon from '@mui/icons-material/FaceRetouchingNatural';
 import { useNavigate  } from 'react-router-dom'
 import { ModalComponent } from '../../Components/Modal';
+import donarg from '../../imagenes/donARG.PNG'
+
 export const CrearUsuarioImagen = () => {
     const navigate = useNavigate();
     const [modalCreacionCorrecta, setModalCreacionCorrecta] = useState(false)
   return (
-    <div class="LoginForm">
-        <Grid container spacing={2} direction="column" justifyContent="center" alignItems="center"> 
-            <Grid item xs={12} md={12} lg={12}>
-                <Typography variant="h5" gutterBottom component="div">
-                    <b>¿ Desea agregar una foto de perfil ?</b>
-                </Typography>
+    <>
+        <div class="LoginForm">
+            <div class="divLogo">
+                <img src={donarg} alt="hola" width="300px" height="70px"/>
+            </div>
+            <Grid container direction="column" spacing={3} style={{marginTop:"4%"}}>
+                <Grid item xs={12} md={12} lg={12}>
+                    <Typography variant="h5" gutterBottom component="div">
+                        <b>Tú usuario</b>
+                    </Typography>        
+                </Grid>
+                <Grid item xs={12} md={12} lg={12}>
+                    <TextField id="usuario" label="Usuario" variant="outlined" fullWidth />
+                </Grid>
+                <Grid item xs={12} md={12} lg={12}>
+                    <TextField id="contraseña" label="Contraseña" variant="outlined"  type='password' fullWidth />
+                </Grid>
+                <Grid item xs={12} md={12} lg={12}>
+                    <TextField id="repetirContraseña" label="Repita su contraseña" variant="outlined"  type='password' fullWidth />
+                </Grid>
             </Grid>
-            <Grid item xs={12} md={12} lg={12}>
-                <FaceRetouchingNaturalIcon color="primary" sx={{ fontSize: 300 }} onClick={() =>{console.log("hola")}} style={{cursor: "pointer"}}/>
+            <Grid container spacing={2} direction="column" justifyContent="center" alignItems="center" style={{marginTop:"4%"}}>
+                <Grid item xs={12} md={12} lg={12}>
+                    <Typography variant="h5" gutterBottom component="div">
+                        <b>¿ Desea agregar una foto de perfil ?</b>
+                    </Typography>
+                </Grid>
+                <Grid item xs={12} md={12} lg={12}>
+                    <FilledInput type="file"></FilledInput>
+                </Grid>
             </Grid>
-        </Grid>
-        <div style={{marginTop:"4%"}}>
-            <Button fullWidth variant="contained" size="lg"  onClick={() =>{setModalCreacionCorrecta(true)}}>Crear Usuario</Button>
+            <div style={{marginTop:"4%"}}>
+                <Button fullWidth variant="contained" size="lg"  onClick={() =>{setModalCreacionCorrecta(true)}}>Crear Usuario</Button>
+            </div>
         </div>
+
+
         <ModalComponent abrir={modalCreacionCorrecta}>
             <div>
             <Grid container spacing={2} direction="column" justifyContent="center" alignItems="center"> 
@@ -40,6 +65,7 @@ export const CrearUsuarioImagen = () => {
             </Grid>
             </div>
         </ModalComponent>
-    </div>
+    </>
+
   )
 }
