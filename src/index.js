@@ -4,6 +4,7 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { Logueo } from './Page/Logueo';
 import { CrearUsuario } from './Page/CrearUsuario';
+import { CrearUsuarioImagen } from './Page/CrearUsuarioImagen';
 import {
   BrowserRouter,
   Routes,
@@ -18,6 +19,7 @@ root.render(
     <Routes>
       <Route path="/" element={<Logueo />} />
       <Route path="crearUsuario" element={<CrearUsuario />} />
+      <Route path="crearUsuarioImagen" element={<CrearUsuarioImagen/>} />
     </Routes>
 </BrowserRouter>
 

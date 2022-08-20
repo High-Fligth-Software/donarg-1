@@ -21,10 +21,10 @@ const [personaTipo, setPersonaTipo] = useState(false);
         <div>
             {personaTipo ? <FormPersonaJuridica/>:<FormPersonaFisica/>}
         </div>
-    </div>
-    <div class='divImage'>
-                <img src={nexo} alt="hola" width="400px" height="100px"/>
-            </div>
+      </div>
+       <div class='divImage'>
+          <img src={nexo} alt="hola" width="400px" height="100px"/>
+       </div>
     </>
 
   )

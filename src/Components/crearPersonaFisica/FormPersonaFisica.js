@@ -2,8 +2,10 @@ import React from 'react'
 import { Grid,TextField, Typography, Button } from '@mui/material';
 import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
 import './FormPersoaFisica.css'
+import { useNavigate  } from 'react-router-dom'
 
 export const FormPersonaFisica = () => {
+  const navigate = useNavigate();
   return (
     <div class="divMayor">
       <Grid container spacing={2} direction="column">
@@ -50,7 +52,7 @@ export const FormPersonaFisica = () => {
         
       </Grid>
       <div style={{marginTop:"4%"}}>
-        <Button fullWidth variant="contained" size="lg">LISTO <SendOutlinedIcon/></Button>
+        <Button fullWidth variant="contained" size="lg"  onClick={() =>{navigate('/crearUsuarioImagen')}}>LISTO <SendOutlinedIcon/></Button>
       </div>
     </div>
   )
