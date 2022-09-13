@@ -3,7 +3,6 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LockIcon from '@mui/icons-material/Lock';
 import './Logueo.css'
 import { useNavigate  } from 'react-router-dom'
-import nexo from '../../imagenes/Nexo.png'
 import donarg from '../../imagenes/donARG.PNG'
 export const Logueo = ()=>{
     const navigate = useNavigate();
@@ -49,14 +48,9 @@ export const Logueo = ()=>{
                         </Link>
                     </div>
                     <div style={{marginTop:"20px", textAlign:"center"}}>
-                        <Button variant="contained" size="large" fullWidth>Ingresar</Button>
+                        <Button variant="contained" size="large" fullWidth onClick={() =>{navigate('/Inicio')}}>Ingresar</Button>
                     </div>
-
-            </div>
-            <div class='divImage'>
-                <img src={nexo} alt="hola" width="400px" height="100px"/>
             </div>
         </div>
-
     )
 }

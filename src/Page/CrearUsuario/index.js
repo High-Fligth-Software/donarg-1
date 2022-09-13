@@ -3,7 +3,6 @@ import './crearUsuario.css'
 import { FormPersonaFisica } from '../../Components/crearPersonaFisica/FormPersonaFisica';
 import { FormPersonaJuridica } from '../../Components/crearPersonaJuridica/FormPersonaJuridica';
 import { Button} from '@mui/material';
-import nexo from '../../imagenes/Nexo.png'
 import donarg from '../../imagenes/donARG.PNG'
 
 export const CrearUsuario = () => {
@@ -22,9 +21,6 @@ const [personaTipo, setPersonaTipo] = useState(false);
             {personaTipo ? <FormPersonaJuridica/>:<FormPersonaFisica/>}
         </div>
       </div>
-       <div class='divImage'>
-          <img src={nexo} alt="hola" width="400px" height="100px"/>
-       </div>
     </>
 
   )
