@@ -5,11 +5,8 @@ import { NavBar } from '../../Components/NavBar';
 
 export const Inicio = () => {
     return (
-        <Grid container direction="column">
-            <Grid item xs={12} md={12} lg={12}>
-                <NavBar/>
-            </Grid>
-            <Grid item xs={12} md={12} lg={12}>
+        <>
+            <NavBar/>
                 <Grid container  direction="row">
                     <Grid item xs={3} md={3} lg={3}>
                         <item><h1>Holaaaaaaaaaaaa</h1></item>
@@ -20,8 +17,7 @@ export const Inicio = () => {
                     <Grid item xs={3} md={3} lg={3}>
                         <item><h1>Holaaaaaaaaaaaa</h1></item>
                     </Grid>
-                </Grid>  
-            </Grid>
-        </Grid>
+                </Grid>                  
+        </>
   )
 }

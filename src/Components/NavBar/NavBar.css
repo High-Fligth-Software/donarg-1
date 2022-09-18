@@ -1,0 +1,7 @@
+.iconStyle{
+    cursor: pointer;
+}
+.iconStyle:hover{
+    color: white;
+}
+
