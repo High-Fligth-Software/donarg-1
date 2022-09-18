@@ -1,0 +1,28 @@
+{
+    "data": {
+        "empresas":[
+            {        
+                "fotoDeLaEmpresa": "https://img.icons8.com/color/480/scania.png",
+                "nombreDeLaEmpresa":"Scania",
+                "descripcion":"Empresa dedicada a la fabricacion de camiones"
+            },
+            {        
+                "fotoDeLaEmpresa": "https://www.pnguniverse.com/wp-content/uploads/2020/10/UNICEF-logo.png",
+                "nombreDeLaEmpresa":"Scania",
+                "descripcion":"Empresa dedicada a la fabricacion de camiones"
+            },
+            {        
+                "fotoDeLaEmpresa": "https://upload.wikimedia.org/wikipedia/commons/5/55/Wikipedia_logo_gold.png",
+                "nombreDeLaEmpresa":"Scania",
+                "descripcion":"Empresa dedicada a la fabricacion de camiones"
+            },
+            {        
+                "fotoDeLaEmpresa": "https://cdn-icons-png.flaticon.com/512/873/873120.png",
+                "nombreDeLaEmpresa":"Scania",
+                "descripcion":"Empresa dedicada a la fabricacion de camiones"
+            }
+
+        ]
+
+    }
+}
