@@ -1,0 +1,9 @@
+.presionablesLaterales{
+    margin-top: 2px;
+    cursor: pointer;
+}
+.presionablesLaterales:hover{
+    background-color:#1976d2;
+    color: white;
+    border-radius: 25px;
+}
