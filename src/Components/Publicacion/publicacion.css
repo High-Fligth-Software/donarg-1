@@ -1,0 +1,8 @@
+.contenedorDePublicaciones{
+    cursor: pointer;
+    background-color: white;
+}
+.contenedorDePublicaciones:hover{
+    background-color:#1976d2;
+    color: white;
+}

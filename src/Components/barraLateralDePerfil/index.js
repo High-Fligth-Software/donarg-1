@@ -52,7 +52,7 @@ export const BarraLateralDePerfil = () => {
                         </Grid>
                         <Grid item>
                             <Typography variant="h7" gutterBottom component="div">
-                                Publicaciones guardadas
+                                Mis publicaciones
                             </Typography>
                         </Grid>
         </Grid>

@@ -1,0 +1,46 @@
+{
+    "data":{
+        "publicaciones":[
+            {
+                "idPublicacion":1,
+                "urlImagen":"https://http2.mlstatic.com/D_NQ_NP_676210-MLA44063083811_112020-V.jpg",
+                "descripcion":"Zapatillas de mujer usadas talla 39",
+                "usuario":{
+                    "nombre":"Javier Figueroa",
+                    "localidad":"Alderetes"
+                },
+                "tipoPublicacion":2
+            },
+            {
+                "idPublicacion":2,
+                "urlImagen":"https://http2.mlstatic.com/D_NQ_NP_930232-MLA51524289912_092022-V.jpg",
+                "descripcion":"Edicion de los libros de Warren Buffet",
+                "usuario":{
+                    "nombre":"Franco Asfoura",
+                    "localidad":"Yerba buena"
+                },
+                "tipoPublicacion":2
+            },
+            {
+                "idPublicacion":3,
+                "urlImagen":"https://www.recetasnestle.com.mx/sites/default/files/inline-images/alimentos-no-perecederos-arroz.jpg.jpg",
+                "descripcion":"Alimentos para escuela rural de Tafi del Valle",
+                "usuario":{
+                    "nombre":"Sofia Medina",
+                    "localidad":"Tafi viejo"
+                },
+                "tipoPublicacion":1
+            },
+            {
+                "idPublicacion":4,
+                "urlImagen":"https://resizer.glanacion.com/resizer/mxd2C-F3U3zu2R2pVsaes7CZCIs=/310x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/VFKPDUXIKBDIHDWMN2N4NVGJV4.jpg",
+                "descripcion":"Donaciones para inundados de Lamadrid",
+                "usuario":{
+                    "nombre":"Exequiel Fiume",
+                    "localidad":"San Miguel de Tucumán"
+                },
+                "tipoPublicacion":1
+            }
+        ]
+    }
+}

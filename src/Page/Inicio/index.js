@@ -1,8 +1,9 @@
 import React from 'react'
-import {Grid,Container} from '@mui/material';
+import {Grid} from '@mui/material';
 import { NavBar } from '../../Components/NavBar';
 import { BarraLateralDePerfil } from '../../Components/barraLateralDePerfil';
 import { BarraLateralDeEmpresas } from '../../Components/barraLateralDeEmpresas';
+import { Publicacion } from '../../Components/Publicacion';
 export const Inicio = () => {
     return (
         <>
@@ -12,9 +13,7 @@ export const Inicio = () => {
                             <BarraLateralDePerfil/>
                     </Grid>
                     <Grid item xs={6} md={6} lg={6}>
-                        <Container style={{backgroundColor: 'white', borderRadius:"25px"}}>
-                            <h1>Holaaaaaaaaaaaa</h1>
-                        </Container>                            
+                        <Publicacion/>
                     </Grid>
                     <Grid item xs={2} md={2} lg={2}>
                         <BarraLateralDeEmpresas/>
