@@ -5,18 +5,19 @@ import AddIcon from '@mui/icons-material/Add';
 import PersonIcon from '@mui/icons-material/Person';
 import SettingsIcon from '@mui/icons-material/Settings';
 import LogoutIcon from '@mui/icons-material/Logout';
+import donarg from '../../imagenes/sodapdf-converted.png'
 import './NavBar.css'
 
 export function NavBar() {
   return (
-    <Grid container  direction="row"   alignItems="center" spacing={2} style={{backgroundColor:"#1976d2", minHeight:"80px", boxShadow:"1px 1px 2px black"}}>
+    <Grid container  direction="row"   alignItems="center" justifyContent="space-around" spacing={2} style={{backgroundColor:"#1976d2", minHeight:"80px", boxShadow:"1px 1px 2px black"}}>
       <Grid item xs={2} md={2} lg={2}>
-        <img src="https://1000marcas.net/wp-content/uploads/2020/01/iPhone-Logo-2007.png" alt="hola" width="100px" height="50px"/>
+        <img src={donarg} alt="hola" width="170px" height="40px"/>
       </Grid>
       <Grid item xs={3} md={3} lg={3} >
         <TextField fullWidth id="buscar" label="Buscar" variant="filled" style={{backgroundColor:"white", borderRadius:"6px"}} size="small" InputProps={{endAdornment:(<SearchIcon/>)}}/>
       </Grid>
-      <Grid item xs={7} md={7} lg={7}>
+      <Grid item xs={6} md={6} lg={6}>
           <Stack
            direction="row"
            justifyContent="flex-end"
