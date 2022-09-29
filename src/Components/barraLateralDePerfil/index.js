@@ -9,7 +9,7 @@ import './barraLateralDePerfil.css'
 export const BarraLateralDePerfil = () => {
     const userData = require('../../Mocks/user.json')
   return (
-    <Container style={{backgroundColor: 'white', borderRadius:"25px"}} >
+    <Container style={{backgroundColor: 'white', borderRadius:"25px", marginTop:"3%"}} >
         <Grid container alignItems="center" justifyContent="flex-start" direction="column" spacing={0.5}>
                 <Grid item xs={12} md={12} lg={12}>
                     <img alt="foto de perfil" src={userData.data.fotoDePerfil} style={{width: "80px", height: "80px", borderRadius: "160px",}}/>
