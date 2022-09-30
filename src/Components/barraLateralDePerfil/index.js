@@ -5,9 +5,11 @@ import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
 import TurnedInIcon from '@mui/icons-material/TurnedIn';
 import donarg from '../../imagenes/donARG.PNG'
 import './barraLateralDePerfil.css'
+import { useNavigate  } from 'react-router-dom'
 
 export const BarraLateralDePerfil = () => {
     const userData = require('../../Mocks/user.json')
+    const navigate = useNavigate();
   return (
     <Container style={{backgroundColor: 'white', borderRadius:"25px", marginTop:"3%"}} >
         <Grid container alignItems="center" justifyContent="flex-start" direction="column" spacing={0.5}>
@@ -46,7 +48,7 @@ export const BarraLateralDePerfil = () => {
                             </Typography>
                         </Grid>
         </Grid>
-        <Grid className="presionablesLaterales" container direction="row"  justifyContent="flex-start" onClick={()=>{console.log("Mostrar perfil")}} spacing={1}>
+        <Grid className="presionablesLaterales" container direction="row"  justifyContent="flex-start" onClick={()=>{navigate('/MisPublicaciones')}} spacing={1}>
                         <Grid item>
                             <TurnedInIcon sx={{ fontSize: 20 }} />
                         </Grid>

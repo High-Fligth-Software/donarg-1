@@ -1,0 +1,46 @@
+{
+    "data":{
+        "publicaciones":[
+            {
+                "idPublicacion":1,
+                "urlImagen":"http://2.bp.blogspot.com/--lu0vNdM5yU/TcbBeZHb3PI/AAAAAAAAAVk/734jC3xB9Vc/s200/heladera+jam+1.jpg",
+                "descripcion":"Zapatillas de mujer usadas talla 39",
+                "tipoPublicacion":1,
+                "finalizo":false
+            },
+            {
+                "idPublicacion":2,
+                "urlImagen":"https://static.vecteezy.com/system/resources/thumbnails/009/966/275/small/close-up-of-a-stack-of-books-the-concept-of-home-reading-of-paper-books-school-education-and-institute-back-to-school-space-for-text-background-photo.jpg",
+                "descripcion":"Libros",
+                "beneficiarios":[
+                    {
+                    "nombre":"Fundacion Caritas",
+                    "localidad":"San Miguel de Tucumán",
+                    "puntuacion":4
+                    }
+                ],
+                "tipoPublicacion":2,
+                "finalizo":true                
+            },
+            {
+                "idPublicacion":3,
+                "urlImagen":"https://media.istockphoto.com/photos/nonperishable-food-canned-goods-conserves-sauces-and-oils-isolated-on-picture-id1282490237?k=20&m=1282490237&s=170667a&w=0&h=gowvD0J4T2ZZZh2u6D8BP1aoElhXjjfIeFntPeFU1LM=",
+                "descripcion":"Alimentos para escuela rural",
+                "donadores":[
+                    {
+                    "nombre":"Sofia Medina",
+                    "localidad":"Tafi viejo",
+                    "puntuacion":5
+                    },
+                    {
+                    "nombre":"Franco Asfoura",
+                    "localidad":"Tafi viejo",
+                    "puntuacion":5
+                    }
+                ],
+                "tipoPublicacion":1,
+                "finalizo":true
+            }
+        ]
+    }
+}
