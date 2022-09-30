@@ -2,7 +2,7 @@ import * as React from "react";
 import {Grid, TextField, Stack} from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import AddIcon from '@mui/icons-material/Add';
-import PersonIcon from '@mui/icons-material/Person';
+import HomeIcon from '@mui/icons-material/Home';
 import SettingsIcon from '@mui/icons-material/Settings';
 import LogoutIcon from '@mui/icons-material/Logout';
 import donarg from '../../imagenes/sodapdf-converted.png'
@@ -26,7 +26,7 @@ export function NavBar() {
            style={{marginRight:"1%"}}
            >
             <AddIcon className="iconStyle" sx={{ fontSize: 30 }} onClick={()=>{console.log("Crear publicacion")}}/>
-            <PersonIcon className="iconStyle" sx={{ fontSize: 30 }} onClick={()=>{console.log("Perfil del usuario")}}/>
+            <HomeIcon  className="iconStyle" sx={{ fontSize: 30 }} onClick={()=>{console.log("Ir al inicio")}}/>
             <SettingsIcon className="iconStyle" sx={{ fontSize: 30 }} onClick={()=>{console.log("Configuraciones")}}/>
             <LogoutIcon className="iconStyle" sx={{ fontSize: 30 }} onClick={()=>{console.log("Salir")}}/>
           </Stack>
