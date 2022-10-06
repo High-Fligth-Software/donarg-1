@@ -12,7 +12,7 @@ export const ModalComponent = (props) => {
         left: '50%',
         transform:'translate(-50%, -50%)',
         width: props.width ? props.width : 400,
-        height: props.height ? props.height : 100,
+        height: props.height ? props.height : 200,
         bgcolor: props.bgcolor ? props.bgcolor : 'background.paper',
         border: '2px solid #000',
         borderRadius: "20px",

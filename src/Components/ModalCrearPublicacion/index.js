@@ -2,12 +2,12 @@ import React, {useState, useEffect} from 'react'
 import { ModalComponent } from '../Modal'
 import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
 import CloseIcon from '@mui/icons-material/Close';
-import {Grid,Divider, TextField, Typography, Button,FormControlLabel,Checkbox} from '@mui/material';
+import {Grid,Divider, TextField, Typography, Button,FormControlLabel,FormControl,Select,MenuItem,Checkbox} from '@mui/material';
 
 export const ModalCrearPublicacion = (props) => {
     const [itemsDonacion, setItemsDonacion] = useState([]);
     const [objeto, setObjeto] = useState('');
-    const [categoria, setCategoria] = useState('');
+    const [categoria, setCategoria] = useState('Otros');
     const [cantidad, setCantidad] = useState('');
     const agregarItems = ()=>{
         console.log({"objeto":{objeto}, "categoria":{categoria}, "cantidad":{cantidad}})
@@ -17,6 +17,12 @@ export const ModalCrearPublicacion = (props) => {
         console.log(itemsDonacion)
 
     },[itemsDonacion])
+    const itemsCategorias = [
+        'Alimentos no perecederos',
+        'Ropa',
+        'Libreria',
+        'Otros',
+      ];
     return (
     <ModalComponent abrir={props.abrirModal} width={1500} height={600}>
         <>
@@ -89,7 +95,21 @@ export const ModalCrearPublicacion = (props) => {
                                     <TextField id="objeto" label="Objeto" variant="outlined" fullWidth onChange={(e)=>{setObjeto(e.target.value)}}/>
                                 </Grid>
                                 <Grid item xs={4} md={4} lg={4}>
-                                    <TextField id="categoria" label="Categoria" variant="outlined" fullWidth onChange={(e)=>{setCategoria(e.target.value)}}/>
+                                    <FormControl >
+                                        <Select
+                                            sx={{width:"300px"}}
+                                            labelId="demo-simple-select-label"
+                                            id="demo-simple-select"
+                                            value={categoria}
+                                            onChange={(e)=>{setCategoria(e.target.value)}}
+                                            >
+                                            {itemsCategorias.map((item)=>{
+                                                return(
+                                                    <MenuItem value={item}>{item}</MenuItem>
+                                                )
+                                            })}
+                                        </Select>
+                                    </FormControl>
                                 </Grid>
                                 <Grid item xs={2} md={2} lg={2}>
                                     <TextField id="cantidad" label="Cantidad" variant="outlined" fullWidth onChange={(e)=>{setCantidad(e.target.value)}}/>
