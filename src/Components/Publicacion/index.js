@@ -1,15 +1,19 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Grid,Container} from '@mui/material';
+import  ModalVerPublicacionNoPropia from "../ModalVerPublicacionNoPropia";
+
 import './publicacion.css'
 
 export const Publicacion = () => {
     const publicaciones = require('../../Mocks/Publicaciones.json')
+    const [modalVerPublicacion, setModalVerPublicacion] = useState(false)
+
   return (
     <div>
         {
             publicaciones.data.publicaciones.map((publicacion) => {
                 return(
-                    <Container className="contenedorDePublicaciones" style={{borderRadius:"25px", marginTop:"2%"}}>
+                    <Container className="contenedorDePublicaciones" style={{borderRadius:"25px", marginTop:"2%"}} onClick={()=>{setModalVerPublicacion(true)}}>
                         <Grid container direction="row" spacing={1}>
                             <Grid item xs={4} md={4} lg={4}>
                                 <img src={publicacion.urlImagen}  style={{width: "200px", height: "150px", borderRadius:"25px", border:"2px solid ", color:"#007FFF"}}/>
@@ -39,6 +43,8 @@ export const Publicacion = () => {
                 )
             })
         }
+
+        <ModalVerPublicacionNoPropia abrirModal={modalVerPublicacion} closeModal={setModalVerPublicacion}/>        
     </div>
   )
 }
