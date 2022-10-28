@@ -1,13 +1,16 @@
-import React ,{useState} from 'react'
+import React ,{useState, useContext} from 'react'
 import { Grid, Typography, Button, TextField, Avatar} from '@mui/material';
 import { useNavigate  } from 'react-router-dom'
 import { ModalComponent } from '../../Components/Modal';
 import donarg from '../../imagenes/donARG.PNG'
+import { ContextCreateUser } from '../../Context/ContextCreateUser';
 
 export const CrearUsuarioImagen = () => {
     const navigate = useNavigate();
     const [modalCreacionCorrecta, setModalCreacionCorrecta] = useState(false)
     const [perfilImage, setPerfilImage] = useState("");
+    const userDataCreate = useContext(ContextCreateUser);
+    console.log(userDataCreate.userData)
     async function onButtonClicked(){
         let contentElement = document.getElementById("content");
         let files = await selectFile("image/*", true);
