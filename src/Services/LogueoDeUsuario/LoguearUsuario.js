@@ -2,13 +2,14 @@ import axios from 'axios'
 import { backBasePath } from '../../index.js'
 
 export const logueo = async (datosDeLogueo)=>{
-    await axios.post(backBasePath + '/auth/login',
-    {datosDeLogueo}
+  const response = await axios.post(backBasePath + '/auth/login',
+    {"email": datosDeLogueo.email, "password":datosDeLogueo.password}
     )
       .then(function (response) {
-        console.log(response);
+        return response.data.data
       })
       .catch(function (error) {
-        console.log(error);
+        return error
       });
+    return response;
 }

@@ -1,22 +1,38 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useContext} from 'react'
 import {Grid, FormControl,InputLabel,OutlinedInput, InputAdornment, Link, Button} from '@mui/material';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LockIcon from '@mui/icons-material/Lock';
 import './Logueo.css'
 import { useNavigate  } from 'react-router-dom'
 import {logueo} from '../../Services/LogueoDeUsuario/LoguearUsuario.js'
+import LoadingTotalPage from '../../Components/LoadingTotalPage';
 import donarg from '../../imagenes/donARG.PNG'
+import { ContextUser } from '../../Context/ContextUser';
 export const Logueo = ()=>{
     const navigate = useNavigate();
     const [datosDeLogueo, setDatosDeLogueo] = useState({
         "email":"",
         "password": ""
     })
+    const [loading, setLoading] = useState(false)
+    const userData = useContext(ContextUser)
     const loguearse = async ()=>{
-        await logueo(datosDeLogueo);
-        //navigate('/Inicio')
+        setLoading(true)
+      await logueo(datosDeLogueo).then((response)=>{
+            sessionStorage.setItem('token', response.accessToken);
+            userData.setUserData(response.user)
+            navigate('/Inicio')
+            setLoading(false)
+        }).catch((error)=>{
+            console.log(error)
+            setLoading(false)
+        })
     }
-
+    if(loading){
+        return(
+            <LoadingTotalPage/>
+        )
+    }
 
     return(
         <div class="divMayor">
