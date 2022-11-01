@@ -14,23 +14,26 @@ import {
 } from "react-router-dom";
 import ContextCreateUser from './Context/ContextCreateUser';
 import ContextUser from './Context/ContextUser';
+import ContextFilter from './Context/ContextFilter';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 document.body.style.backgroundColor = "#eef3f8";
 export const backBasePath = 'http://localhost:3000'
 root.render(
   <BrowserRouter>
-   <ContextCreateUser>
-   <ContextUser>
-      <Routes>
-        <Route path="/" element={<Logueo />} />
-        <Route path="Inicio" element={<Inicio/>} />
-        <Route path="crearUsuario" element={<CrearUsuario />} />
-        <Route path="crearUsuarioImagen" element={<CrearUsuarioImagen/>} />
-        <Route path="MisPublicaciones" element={<MisPublicaciones/>} />
-      </Routes>
+    <ContextCreateUser>
+    <ContextUser>
+    <ContextFilter>
+        <Routes>
+          <Route path="/" element={<Logueo />} />
+          <Route path="Inicio" element={<Inicio/>} />
+          <Route path="crearUsuario" element={<CrearUsuario />} />
+          <Route path="crearUsuarioImagen" element={<CrearUsuarioImagen/>} />
+          <Route path="MisPublicaciones" element={<MisPublicaciones/>} />
+        </Routes>
+    </ContextFilter>
     </ContextUser>
     </ContextCreateUser>
-</BrowserRouter>
+  </BrowserRouter>
 
 );
 

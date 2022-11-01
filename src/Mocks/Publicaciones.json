@@ -9,7 +9,7 @@
                     "nombre":"Javier Figueroa",
                     "localidad":"Alderetes"
                 },
-                "tipoPublicacion":2
+                "type_id":2
             },
             {
                 "idPublicacion":2,
@@ -19,7 +19,7 @@
                     "nombre":"Franco Asfoura",
                     "localidad":"Yerba buena"
                 },
-                "tipoPublicacion":2
+                "type_id":2
             },
             {
                 "idPublicacion":3,
@@ -29,7 +29,7 @@
                     "nombre":"Sofia Medina",
                     "localidad":"Tafi viejo"
                 },
-                "tipoPublicacion":1
+                "type_id":1
             },
             {
                 "idPublicacion":4,
@@ -39,7 +39,7 @@
                     "nombre":"Exequiel Fiume",
                     "localidad":"San Miguel de Tucumán"
                 },
-                "tipoPublicacion":1
+                "type_id":1
             }
         ]
     }

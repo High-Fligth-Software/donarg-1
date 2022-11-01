@@ -1,8 +1,12 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import {Container, FormControlLabel,Checkbox, Grid, Typography, MenuItem, Select,FormControl} from '@mui/material';
-
+import { ContextFilter } from '../../Context/ContextFilter';
 export const ComponenteFiltro = () => {
     const [localidad, setLocalidad] = useState('Todas')
+    const [chekcTodos, setCheckTodos]=useState(true)
+    const [chekcDonacion, setCheckDonacion]=useState(false)
+    const [chekcPeticion, setCheckPeticion]=useState(false)
+    const {setFiltroTipoDePublicacion} = useContext(ContextFilter)
     const nombreLocalidades = [
         'Todas',
         'San Miguel de Tucumán',
@@ -16,6 +20,24 @@ export const ComponenteFiltro = () => {
         'San Andres',
         'Lules',
       ];
+    const checkContol=(valueCheck)=>{
+        if(valueCheck===0){
+            setCheckTodos(true)
+            setCheckDonacion(false)
+            setCheckPeticion(false)
+            setFiltroTipoDePublicacion(0)
+        }else if(valueCheck===1){
+            setCheckPeticion(true)
+            setCheckTodos(false)
+            setCheckDonacion(false)
+            setFiltroTipoDePublicacion(1)
+        }else if(valueCheck===2){
+            setCheckDonacion(true)
+            setCheckPeticion(false)
+            setCheckTodos(false)
+            setFiltroTipoDePublicacion(2)
+        }
+    }
   return (
     <Container style={{borderRadius:"25px", marginTop:"2%", backgroundColor:"white"}}>
         <Grid container direction="column">
@@ -30,13 +52,13 @@ export const ComponenteFiltro = () => {
                 </Typography> 
             </Grid>
             <Grid item>
-                <FormControlLabel control={<Checkbox defaultChecked />} label="Todas" />
+                <FormControlLabel control={<Checkbox checked={chekcTodos}/>} label="Todas" onChange={()=>{checkContol(0)}}/>
             </Grid>
             <Grid item>
-                <FormControlLabel control={<Checkbox />} label="Peticion" />
+                <FormControlLabel control={<Checkbox checked={chekcPeticion}/>} label="Peticion" onChange={()=>{checkContol(1)}}/>
             </Grid>
             <Grid item style={{marginBottom:"4%"}}>
-                <FormControlLabel control={<Checkbox />} label="Donacion" />
+                <FormControlLabel control={<Checkbox  checked={chekcDonacion}/>} label="Donacion" onChange={()=>{checkContol(2)}}/>
             </Grid>
             <Grid item style={{marginBottom:"4%"}}>
                 <Typography variant="h7" gutterBottom component="div">
