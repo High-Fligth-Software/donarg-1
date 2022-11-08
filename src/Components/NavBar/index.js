@@ -8,8 +8,11 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import donarg from '../../imagenes/sodapdf-converted.png'
 import { ModalCrearPublicacion } from "../ModalCrearPublicacion";
 import './NavBar.css'
+import { useNavigate  } from 'react-router-dom'
+
 
 export function NavBar() {
+  const navigate = useNavigate();
   const [modalCrearPublicacion, setModalCrearPublicacion] = useState(false)
   return (
     <>
@@ -29,9 +32,9 @@ export function NavBar() {
             style={{marginRight:"1%"}}
             >
               <AddIcon className="iconStyle" sx={{ fontSize: 30 }} onClick={()=>{setModalCrearPublicacion(true)}}/>
-              <HomeIcon  className="iconStyle" sx={{ fontSize: 30 }} onClick={()=>{console.log("Ir al inicio")}}/>
+              <HomeIcon  className="iconStyle" sx={{ fontSize: 30 }} onClick={()=>{navigate("/Inicio")}}/>
               <SettingsIcon className="iconStyle" sx={{ fontSize: 30 }} onClick={()=>{console.log("Configuraciones")}}/>
-              <LogoutIcon className="iconStyle" sx={{ fontSize: 30 }} onClick={()=>{console.log("Salir")}}/>
+              <LogoutIcon className="iconStyle" sx={{ fontSize: 30 }} onClick={()=>{navigate("/")}}/>
             </Stack>
         </Grid>
       </Grid>
