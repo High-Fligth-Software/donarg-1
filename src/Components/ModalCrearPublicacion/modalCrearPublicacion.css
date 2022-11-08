@@ -1,0 +1,7 @@
+.inputfile{
+    cursor: pointer;
+    position: absolute;
+    opacity: 0;
+    height: 40%;
+    z-index: 1;
+}
