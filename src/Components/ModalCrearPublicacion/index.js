@@ -14,14 +14,15 @@ import {
   Select,
   MenuItem,
   Checkbox,
+  Alert
 } from "@mui/material";
-import { CrearPost } from "../../Services/CrearPublicacion/CrearPublicacion";
+import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
+import { CrearPost } from "../../Services/Publicacion/CrearPublicacion";
 export const ModalCrearPublicacion = (props) => {
   const [itemsDonacion, setItemsDonacion] = useState([]);
   const [objeto, setObjeto] = useState("");
   const [categoria, setCategoria] = useState("Otros");
   const [cantidad, setCantidad] = useState("");
-  const [image, setImage] = useState("");
   const [files, setFiles] = useState();
   const [chekcMovilidadSi, setCheckMovilidadSi] = useState(false);
   const [chekcMovilidadNo, setCheckMovilidadNo] = useState(true);
@@ -29,49 +30,18 @@ export const ModalCrearPublicacion = (props) => {
   const [chekcPeticion, setCheckPeticion] = useState(true);
   const [titulo, setTitulo] = useState("");
   const [descripcion, setDescripcion] = useState("");
-
+  const [errorLog, setErrorLog] = useState("")
   const selectedHandler = (e) => {
     setFiles(e.target.files);
   };
-
-  //   async function onButtonClicked(e) {
-  //     let contentElement = document.getElementById("content");
-  //     let files = await selectFile("image/*", true);
-  //     const file = files.map((file) => `"${URL.createObjectURL(file)}"`);
-  //     setImage(file);
-  //     //Tambien se puede usar un valor porcentual que se adapte a la imagen
-  //     contentElement.innerHTML = files
-  //       .map(
-  //         (file) =>
-  //           `<img src="${URL.createObjectURL(
-  //             file
-  //           )}" style="width: 300px; height: 500px; border-radius:20px;">`
-  //       )
-  //       .join("");
-  //   }
-  //   function selectFile(contentType, multiple) {
-  //     return new Promise((resolve) => {
-  //       let input = document.createElement("input");
-  //       input.type = "file";
-  //       input.multiple = multiple;
-  //       input.accept = contentType;
-
-  //       input.onchange = (_) => {
-  //         let files = Array.from(input.files);
-  //         if (multiple) resolve(files);
-  //         else resolve(files[0]);
-  //       };
-  //       input.click();
-  //     });
-  //   }
   const agregarItems = () => {
     setItemsDonacion((current) => [
       ...current,
-      { description: objeto, cantidad: cantidad },
+      { description: objeto, cantidad: cantidad, categoria: categoria },
     ]);
   };
   useEffect(() => {
-    console.log(itemsDonacion);
+
   }, []);
   const itemsCategorias = [
     "Alimentos no perecederos",
@@ -99,17 +69,22 @@ export const ModalCrearPublicacion = (props) => {
   };
 
   const crearPublicacion = () => {
-    const datosPublicacion = {
-      LinesPostDto: itemsDonacion,
-      title: titulo,
-      content: descripcion,
-      type: chekcPeticion ? 1 : 2,
-      category: 1,
-    };
-    CrearPost(datosPublicacion, files, setFiles);
+    if(itemsDonacion.length===0){
+      setErrorLog("No es posible generar una publicación sin items")
+    }else{
+      const datosPublicacion = {
+        LinesPostDto: itemsDonacion,
+        title: titulo,
+        content: descripcion,
+        type: chekcPeticion ? 1 : 2,
+        category: 1,
+      };
+      CrearPost(datosPublicacion, files, setFiles);
+      props.closeModal(false);
+    }
   };
   return (
-    <ModalComponent abrir={props.abrirModal} width={1500} height={600}>
+    <ModalComponent abrir={props.abrirModal} width={1500} height={"auto"}>
       <>
         <Grid
           container
@@ -123,7 +98,8 @@ export const ModalCrearPublicacion = (props) => {
             md={3}
             lg={3}
             style={{
-              display: "block",
+              display: "flex",
+              alignItems: "center",
               margin: "0 0 0 7%",
             }}
           >
@@ -136,9 +112,6 @@ export const ModalCrearPublicacion = (props) => {
               ></input>
               <AddAPhotoIcon
                 sx={{ width: 200, height: 200, cursor: "pointer" }}
-                // onClick={(e) => {
-                //   onButtonClicked(e);
-                // }}
               />
             </div>
           </Grid>
@@ -171,7 +144,7 @@ export const ModalCrearPublicacion = (props) => {
                   id="descripcionPublicacion"
                   label="Describe tu publicación"
                   multiline
-                  maxRows={6}
+                  maxRows={3}
                   fullWidth
                   onChange={(e) => {
                     setDescripcion(e.target.value);
@@ -302,6 +275,41 @@ export const ModalCrearPublicacion = (props) => {
                   </Grid>
                 </Grid>
               </Grid>
+              <Grid item  xs={12} md={12} lg={12}>
+                  {itemsDonacion ?
+                    <Grid container direction="row" alignItems="center" justifyContent="flex-start" spacing={1}>
+                      {
+                        itemsDonacion.map((element)=>{
+                          return(
+                            <>
+                              <Grid item xs={4} md={4} lg={4}>
+                               <Typography variant="subtitle2" gutterBottom> {element.description} - {element.categoria} - {element.cantidad} </Typography>
+                              </Grid>
+                              <Grid item xs={1} md={1} lg={1}>
+                                <DeleteOutlineOutlinedIcon sx={{cursor: "pointer", color:"#CB3234"}}/>
+                              </Grid>
+                            </>
+                          )
+                        })
+                      }
+                    </Grid>
+                  :null}
+              </Grid>
+              <Grid item  xs={12} md={12} lg={12} sx={{marginTop:"1%"}}>
+                  <Button
+                      variant="contained"
+                      size="sm"
+                      fullWidth
+                      onClick={() => {
+                        crearPublicacion();
+                      }}
+                    >
+                      Crear Publicación
+                  </Button>
+              </Grid>
+              <Grid item  xs={12} md={12} lg={12}>
+                  {errorLog ? <Alert severity="error" sx={{borderRadius:"10px", marginTop:"1%"}}>{errorLog}</Alert>:null}
+              </Grid>
             </Grid>
           </Grid>
           <Grid
@@ -319,17 +327,6 @@ export const ModalCrearPublicacion = (props) => {
                     props.closeModal(false);
                   }}
                 />
-              </Grid>
-              <Grid item>
-                <Button
-                  variant="contained"
-                  size="sm"
-                  onClick={() => {
-                    crearPublicacion();
-                  }}
-                >
-                  Crear
-                </Button>
               </Grid>
             </Grid>
           </Grid>
