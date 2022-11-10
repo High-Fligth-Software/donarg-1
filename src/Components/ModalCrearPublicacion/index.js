@@ -25,6 +25,7 @@ export const ModalCrearPublicacion = (props) => {
   const [cantidad, setCantidad] = useState("");
   const [files, setFiles] = useState();
   const [filesToView, setFilesToView] = useState([]);
+  const [imageView,setimageView] = useState("");
   const [chekcMovilidadSi, setCheckMovilidadSi] = useState(false);
   const [chekcMovilidadNo, setCheckMovilidadNo] = useState(true);
   const [chekcDonacion, setCheckDonacion] = useState(false);
@@ -43,6 +44,7 @@ const selectedHandler = (e) => {
         filesView.push(URL.createObjectURL(e.target.files[index]));
     }
     setFilesToView(filesView);
+    setimageView(filesView[0])
   };
   const agregarItems = () => {
     setItemsDonacion((current) => [
@@ -102,17 +104,7 @@ const selectedHandler = (e) => {
           justifyContent="flex-start"
           sx={{ width: 1600, height: 600 }}
         >
-          <Grid
-            item
-            xs={12}
-            md={3}
-            lg={3}
-            style={{
-              display: "flex",
-              alignItems: "center",
-              margin: "0 0 0 7%",
-            }}
-          >
+          <Grid item xs={12} md={3} lg={3} style={{display: "flex",alignItems: "center",margin: "0 0 0 7%",}}>
             <div className="container-input">
               <input
                 className="inputfile"
@@ -120,12 +112,18 @@ const selectedHandler = (e) => {
                 multiple
                 type={"file"}
               ></input>
-              <AddAPhotoIcon
-                sx={{ width: 200, height: 200, cursor: "pointer" }}
-              />
+              {
+                filesToView.length===0 ? 
+                    <AddAPhotoIcon
+                    sx={{ width: 200, height: 200, cursor: "pointer" }}
+                  />:
+                  <div>
+                    <img class="img-view" alt="Imagen del producto grande" src={imageView} />
+                  </div>
+              }
               <div className="images_container">
                 {filesToView.map((f) => {
-                  return <img class="img-preview" src={f} />;
+                  return <img class="img-preview" alt="Imagen del producto" src={f} onClick={()=>{setimageView(f)}}/>;
                 })}
               </div>
             </div>

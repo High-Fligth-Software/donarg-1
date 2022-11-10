@@ -16,4 +16,13 @@
     max-width: 15%;
     max-height: 20%;
     margin: 0% 2% 2% 0%;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.img-view{
+    max-width: 60%;
+    max-height: 50%;
+    margin: 0% 2% 2% 0%;
+    border-radius: 5px;
 }
