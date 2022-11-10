@@ -24,6 +24,7 @@ export const ModalCrearPublicacion = (props) => {
   const [categoria, setCategoria] = useState("Otros");
   const [cantidad, setCantidad] = useState("");
   const [files, setFiles] = useState();
+  const [filesToView, setFilesToView] = useState([]);
   const [chekcMovilidadSi, setCheckMovilidadSi] = useState(false);
   const [chekcMovilidadNo, setCheckMovilidadNo] = useState(true);
   const [chekcDonacion, setCheckDonacion] = useState(false);
@@ -31,8 +32,17 @@ export const ModalCrearPublicacion = (props) => {
   const [titulo, setTitulo] = useState("");
   const [descripcion, setDescripcion] = useState("");
   const [errorLog, setErrorLog] = useState("")
-  const selectedHandler = (e) => {
-    setFiles(e.target.files);
+
+
+const selectedHandler = (e) => {
+    let files = e.target.files;
+    setFiles(files);
+    let filesView = [];
+    for (let index = 0; index < 5; index++) {
+      if (e.target.files[index] !== undefined)
+        filesView.push(URL.createObjectURL(e.target.files[index]));
+    }
+    setFilesToView(filesView);
   };
   const agregarItems = () => {
     setItemsDonacion((current) => [
@@ -113,6 +123,11 @@ export const ModalCrearPublicacion = (props) => {
               <AddAPhotoIcon
                 sx={{ width: 200, height: 200, cursor: "pointer" }}
               />
+              <div className="images_container">
+                {filesToView.map((f) => {
+                  return <img class="img-preview" src={f} />;
+                })}
+              </div>
             </div>
           </Grid>
           <Divider orientation="vertical" flexItem fullheight></Divider>

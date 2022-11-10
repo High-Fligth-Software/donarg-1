@@ -5,3 +5,15 @@
     height: 40%;
     z-index: 1;
 }
+
+.images_container{
+    display: flex;
+    margin-top: 30%;
+    margin-left: -30%;
+}
+
+.img-preview{
+    max-width: 15%;
+    max-height: 20%;
+    margin: 0% 2% 2% 0%;
+}

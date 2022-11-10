@@ -9,8 +9,8 @@ import donarg from '../../imagenes/sodapdf-converted.png'
 import { ModalCrearPublicacion } from "../ModalCrearPublicacion";
 import './NavBar.css'
 import { useNavigate  } from 'react-router-dom'
-
-
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import SideDrawerConfiguraciones from '../SideDrawerConfiguraciones';
 export function NavBar() {
   const navigate = useNavigate();
   const [modalCrearPublicacion, setModalCrearPublicacion] = useState(false)
@@ -32,6 +32,7 @@ export function NavBar() {
             style={{marginRight:"1%"}}
             >
               <AddIcon className="iconStyle" sx={{ fontSize: 30 }} onClick={()=>{setModalCrearPublicacion(true)}}/>
+              <NotificationsIcon className="iconStyle" sx={{ fontSize: 30 }} onClick={()=>{console.log('Notificaciones')}}/>
               <HomeIcon  className="iconStyle" sx={{ fontSize: 30 }} onClick={()=>{navigate("/Inicio")}}/>
               <SettingsIcon className="iconStyle" sx={{ fontSize: 30 }} onClick={()=>{console.log("Configuraciones")}}/>
               <LogoutIcon className="iconStyle" sx={{ fontSize: 30 }} onClick={()=>{navigate("/")}}/>
@@ -40,6 +41,7 @@ export function NavBar() {
       </Grid>
 
       <ModalCrearPublicacion abrirModal={modalCrearPublicacion} closeModal={setModalCrearPublicacion}/>
+      
     </>
 
   );
