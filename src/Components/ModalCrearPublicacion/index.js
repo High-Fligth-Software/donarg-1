@@ -33,7 +33,7 @@ export const ModalCrearPublicacion = (props) => {
   const [titulo, setTitulo] = useState("");
   const [descripcion, setDescripcion] = useState("");
   const [errorLog, setErrorLog] = useState("")
-
+  const [modalCreacionCorrecta, setModalCreacionCorrecta] = useState(false)
 
 const selectedHandler = (e) => {
     let files = e.target.files;
@@ -93,9 +93,11 @@ const selectedHandler = (e) => {
       };
       CrearPost(datosPublicacion, files, setFiles);
       props.closeModal(false);
+      setModalCreacionCorrecta(true)
     }
   };
   return (
+    <>
     <ModalComponent abrir={props.abrirModal} width={1500} height={"auto"}>
       <>
         <Grid
@@ -346,5 +348,26 @@ const selectedHandler = (e) => {
         </Grid>
       </>
     </ModalComponent>
+
+    <ModalComponent  abrir={modalCreacionCorrecta}>
+    <div>
+            <Grid container spacing={2} direction="column" justifyContent="center" alignItems="center"> 
+                <Grid item>
+                    <Typography variant="h3" gutterBottom component="div">
+                            <b>!Felicidades¡</b>
+                    </Typography>
+                </Grid>
+                <Grid item>
+                    <Typography variant="body" gutterBottom component="div">
+                            <b>Ya sos parte de la familia donARG</b>
+                    </Typography>
+                </Grid>
+                <Grid item>
+                    <Button fullWidth variant="contained" size="lg"  onClick={() =>{setModalCreacionCorrecta(false)}}>Fantastico señooor</Button>
+                </Grid>
+            </Grid>
+            </div>
+    </ModalComponent>
+    </>
   );
 };
