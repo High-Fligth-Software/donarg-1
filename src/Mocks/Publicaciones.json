@@ -4,7 +4,9 @@
             {
                 "idPublicacion":1,
                 "urlImagen":"https://http2.mlstatic.com/D_NQ_NP_676210-MLA44063083811_112020-V.jpg",
-                "descripcion":"Zapatillas de mujer usadas talla 39",
+                "titulo":"Zapatillas de mujer usadas talla 39",
+                "descripcion":"Las zapatillas se encuentran en perfecto estado. Fueron compradas en el año 2020 y deben haber sido usadas unas 3 o 4 veces como maximo",
+                "items":[{"objeto":"Zapatillas", "cantidad":1}],
                 "usuario":{
                     "nombre":"Javier Figueroa",
                     "localidad":"Alderetes"
@@ -14,7 +16,9 @@
             {
                 "idPublicacion":2,
                 "urlImagen":"https://http2.mlstatic.com/D_NQ_NP_930232-MLA51524289912_092022-V.jpg",
-                "descripcion":"Edicion de los libros de Warren Buffet",
+                "titulo":"Edicion de los libros de Warren Buffet",
+                "descripcion":"Warren Edward Buffett es un inversor y empresario estadounidense. Es considerado uno de los más grandes inversores del mundo, además de ser el mayor accionista, presidente y director ejecutivo de Berkshire Hathaway",                            
+                "items":[{"objeto":"El ego es el enemigo", "cantidad":1}, {"objeto":"El tao", "cantidad":1}],
                 "usuario":{
                     "nombre":"Franco Asfoura",
                     "localidad":"Yerba buena"
@@ -24,7 +28,9 @@
             {
                 "idPublicacion":3,
                 "urlImagen":"https://www.recetasnestle.com.mx/sites/default/files/inline-images/alimentos-no-perecederos-arroz.jpg.jpg",
-                "descripcion":"Alimentos para escuela rural de Tafi del Valle",
+                "titulo":"Alimentos para escuela rural",
+                "descripcion":"Nos encontramos en busqueda de alimentos no perecederos para la escuela de la Cienaga, ubicada en las orillas de Tafi del Valle. Cualquier tipo de ayuda en valia, en preferencia alimentos no perecederos. Los chicos se lo agradecen.",
+                "items":[{"objeto":"latas de atún", "cantidad":"100"},{"objeto":"latas de arvejas", "cantidad":"100"},{"objeto":"Arroz", "cantidad":"100 kg"},{"objeto":"Polenta", "cantidad":"100kg"},{"objeto":"Fideos", "cantidad":"100"},{"objeto":"Latas de choclo", "cantidad":"100"},{"objeto":"Pure instantaneo", "cantidad":"100"}],
                 "usuario":{
                     "nombre":"Sofia Medina",
                     "localidad":"Tafi viejo"
@@ -34,7 +40,9 @@
             {
                 "idPublicacion":4,
                 "urlImagen":"https://resizer.glanacion.com/resizer/mxd2C-F3U3zu2R2pVsaes7CZCIs=/310x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/VFKPDUXIKBDIHDWMN2N4NVGJV4.jpg",
-                "descripcion":"Donaciones para inundados de Lamadrid",
+                "titulo":"Donaciones para inundados Lamadrid",
+                "descripcion":"Como es de común conocimiento la ciudad de Lamadrid se encuentra en problemas debido a las frecuentes y fuertes lluvias que esta sufriendo la zona, haciendo que los habitantes de la misma pierdan varias de sus pertenencias. Muchas gracias.",
+                "items":[{"objeto":"latas de atún", "cantidad":"100"},{"objeto":"Colchones", "cantidad":"100"}],
                 "usuario":{
                     "nombre":"Exequiel Fiume",
                     "localidad":"San Miguel de Tucumán"
