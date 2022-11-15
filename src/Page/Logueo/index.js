@@ -1,5 +1,5 @@
 import React, {useState, useContext} from 'react'
-import {Grid, FormControl,InputLabel,OutlinedInput, InputAdornment, Link, Button} from '@mui/material';
+import {Grid, FormControl,InputLabel,OutlinedInput, InputAdornment, Link, Button, Alert} from '@mui/material';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LockIcon from '@mui/icons-material/Lock';
 import './Logueo.css'
@@ -10,6 +10,7 @@ import donarg from '../../imagenes/donARG.PNG'
 import { ContextUser } from '../../Context/ContextUser';
 export const Logueo = ()=>{
     const navigate = useNavigate();
+    const [errorLog, setErrorLog] = useState("")
     const [datosDeLogueo, setDatosDeLogueo] = useState({
         "email":"",
         "password": ""
@@ -19,13 +20,17 @@ export const Logueo = ()=>{
     const loguearse = async ()=>{
         setLoading(true)
       await logueo(datosDeLogueo).then((response)=>{
-            sessionStorage.setItem('token', response.accessToken);
-            userData.setUserData(response.user)
-            navigate('/Inicio')
-            setLoading(false)
-        }).catch((error)=>{
-            console.log(error)
-            setLoading(false)
+            console.log(response)
+            if(response.status !==200){
+                console.log("hhhhbueno")
+                setErrorLog("Error al intentar autenticarse")
+                setLoading(false)
+            }else{
+                sessionStorage.setItem('token', response.accessToken);
+                userData.setUserData(response.user)
+                navigate('/Inicio')
+                setLoading(false)
+            }
         })
     }
     if(loading){
@@ -71,6 +76,9 @@ export const Logueo = ()=>{
                         <Link underline="none" onClick={()=>{navigate("/crearUsuario")}} >
                             ¿No tienes una cuenta? Presiona AQUI ! 
                         </Link>
+                    </div>
+                    <div>
+                        {errorLog ? <Alert severity="error" sx={{borderRadius:"10px", marginTop:"1%"}}>{errorLog}</Alert>:null}
                     </div>
                     <div style={{marginTop:"20px", textAlign:"center"}}>
                         <Button variant="contained" size="large" fullWidth onClick={() =>{loguearse()}}>Ingresar</Button>
