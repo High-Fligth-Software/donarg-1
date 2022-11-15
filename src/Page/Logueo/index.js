@@ -20,15 +20,14 @@ export const Logueo = ()=>{
     const loguearse = async ()=>{
         setLoading(true)
       await logueo(datosDeLogueo).then((response)=>{
-            console.log(response)
-            if(response.status !==200){
-                console.log("hhhhbueno")
-                setErrorLog("Error al intentar autenticarse")
-                setLoading(false)
-            }else{
+            if(response.accessToken){
                 sessionStorage.setItem('token', response.accessToken);
                 userData.setUserData(response.user)
                 navigate('/Inicio')
+                setLoading(false)
+
+            }else{
+                setErrorLog("Error al intentar autenticarse")
                 setLoading(false)
             }
         })

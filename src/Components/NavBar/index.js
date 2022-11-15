@@ -10,10 +10,11 @@ import { ModalCrearPublicacion } from "../ModalCrearPublicacion";
 import './NavBar.css'
 import { useNavigate  } from 'react-router-dom'
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import SideDrawerConfiguraciones from '../SideDrawerConfiguraciones';
+import {SideDrawerConfiguraciones} from '../SideDrawerConfiguraciones';
 export function NavBar() {
   const navigate = useNavigate();
   const [modalCrearPublicacion, setModalCrearPublicacion] = useState(false)
+  const [abrirConfiguraciones, setAbrirConfiguraciones] = useState(false)
   return (
     <>
       <Grid container  direction="row"   alignItems="center" justifyContent="space-around" spacing={2} style={{backgroundColor:"#1976d2", minHeight:"80px", boxShadow:"1px 1px 2px black"}}>
@@ -34,14 +35,14 @@ export function NavBar() {
               <AddIcon className="iconStyle" sx={{ fontSize: 30 }} onClick={()=>{setModalCrearPublicacion(true)}}/>
               <NotificationsIcon className="iconStyle" sx={{ fontSize: 30 }} onClick={()=>{console.log('Notificaciones')}}/>
               <HomeIcon  className="iconStyle" sx={{ fontSize: 30 }} onClick={()=>{navigate("/Inicio")}}/>
-              <SettingsIcon className="iconStyle" sx={{ fontSize: 30 }} onClick={()=>{console.log("Configuraciones")}}/>
+              <SettingsIcon className="iconStyle" sx={{ fontSize: 30 }} onClick={()=>{setAbrirConfiguraciones(true)}}/>
               <LogoutIcon className="iconStyle" sx={{ fontSize: 30 }} onClick={()=>{navigate("/")}}/>
             </Stack>
         </Grid>
       </Grid>
 
       <ModalCrearPublicacion abrirModal={modalCrearPublicacion} closeModal={setModalCrearPublicacion}/>
-      
+      <SideDrawerConfiguraciones abrir={abrirConfiguraciones} cerrar={setAbrirConfiguraciones}/>
     </>
 
   );

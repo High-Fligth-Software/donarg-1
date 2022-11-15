@@ -1,18 +1,19 @@
-import React, {useState} from 'react'
+import React from 'react'
 import {Drawer} from '@mui/material';
 
-export const SideDrawerConfiguraciones = () => {
-    const [openSideDrawerConfiguracion, setOpenSideDrawerConfiguracion] = useState(false)
+export const SideDrawerConfiguraciones = (props) => {
   return (
     <div>
-            <Drawer
+        <React.Fragment key={'right'} >
+          <Drawer
             anchor={'right'}
-            open={openSideDrawerConfiguracion}
-            onClose={setOpenSideDrawerConfiguracion(false)}
-            >
-                <h1>Hola</h1>
-            </Drawer>
+            open={props.abrir}
+            onClose={props.cerrar}
+            style={{minWidth: "490px"}}
+          >
+            <h1>hola</h1>
+          </Drawer>
+        </React.Fragment>
     </div>
   )
 }
-export default SideDrawerConfiguraciones;
