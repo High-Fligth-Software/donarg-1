@@ -38,7 +38,7 @@ export const BarraLateralDePerfil = () => {
                             </Typography>
                         </Grid>
         </Grid>
-        <Grid className="presionablesLaterales" container direction="row"  justifyContent="flex-start" onClick={()=>{console.log("Mostrar perfil")}} spacing={1}>
+        <Grid className="presionablesLaterales" container direction="row"  justifyContent="flex-start" onClick={()=>{navigate('/donarg')}} spacing={1}>
                         <Grid item>
                             <VolunteerActivismIcon sx={{ fontSize: 20 }} />
                         </Grid>

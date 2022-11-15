@@ -7,6 +7,7 @@ import { CrearUsuario } from './Page/CrearUsuario';
 import { CrearUsuarioImagen } from './Page/CrearUsuarioImagen';
 import {Inicio} from './Page/Inicio';
 import { MisPublicaciones } from './Page/MisPublicaciones';
+import { DonarADonarg } from './Page/DonarADonarg';
 import {
   BrowserRouter,
   Routes,
@@ -29,6 +30,7 @@ root.render(
           <Route path="crearUsuario" element={<CrearUsuario />} />
           <Route path="crearUsuarioImagen" element={<CrearUsuarioImagen/>} />
           <Route path="MisPublicaciones" element={<MisPublicaciones/>} />
+          <Route path="donarg" element={<DonarADonarg/>} />
         </Routes>
     </ContextFilter>
     </ContextUser>
