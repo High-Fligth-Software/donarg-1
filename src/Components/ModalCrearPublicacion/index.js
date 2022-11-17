@@ -18,6 +18,7 @@ import {
 } from "@mui/material";
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import { CrearPost } from "../../Services/Publicacion/CrearPublicacion";
+import { GetCategorias } from "../../Services/Publicacion/GetCategorias";
 export const ModalCrearPublicacion = (props) => {
   const [itemsDonacion, setItemsDonacion] = useState([]);
   const [objeto, setObjeto] = useState("");
@@ -34,6 +35,7 @@ export const ModalCrearPublicacion = (props) => {
   const [descripcion, setDescripcion] = useState("");
   const [errorLog, setErrorLog] = useState("")
   const [modalCreacionCorrecta, setModalCreacionCorrecta] = useState(false)
+  const [itemsCategorias, setItemsCategorias] = useState([])
 
 const selectedHandler = (e) => {
     let files = e.target.files;
@@ -49,18 +51,19 @@ const selectedHandler = (e) => {
   const agregarItems = () => {
     setItemsDonacion((current) => [
       ...current,
-      { description: objeto, cantidad: cantidad, categoria: categoria },
+      { description: objeto, cantidad: cantidad, categoryNumber: categoria.id, categoriaNombre: categoria.name },
     ]);
   };
-  useEffect(() => {
+  const traerCategorias = ()=>{
+      GetCategorias() 
+      .then((response)=>{setItemsCategorias(response); })
+      .catch((err)=>{console.log(err)})    
+  }
+  useEffect(  () => {
+    traerCategorias()
+    console.log(itemsDonacion)
+  }, [itemsDonacion]);
 
-  }, []);
-  const itemsCategorias = [
-    "Alimentos no perecederos",
-    "Ropa",
-    "Libreria",
-    "Otros",
-  ];
   const checkMovilidad = (bandera) => {
     if (bandera === 0) {
       setCheckMovilidadNo(true);
@@ -89,7 +92,7 @@ const selectedHandler = (e) => {
         title: titulo,
         content: descripcion,
         type: chekcPeticion ? 1 : 2,
-        category: 1,
+        
       };
       CrearPost(datosPublicacion, files, setFiles);
       props.closeModal(false);
@@ -254,7 +257,7 @@ const selectedHandler = (e) => {
                         }}
                       >
                         {itemsCategorias.map((item) => {
-                          return <MenuItem value={item}>{item}</MenuItem>;
+                          return <MenuItem value={item}>{item.name}</MenuItem>;
                         })}
                       </Select>
                     </FormControl>
@@ -298,7 +301,7 @@ const selectedHandler = (e) => {
                           return(
                             <>
                               <Grid item xs={4} md={4} lg={4}>
-                               <Typography variant="subtitle2" gutterBottom> {element.description} - {element.categoria} - {element.cantidad} </Typography>
+                               <Typography variant="subtitle2" gutterBottom> {element.description} - {element.categoriaNombre} - {element.cantidad} </Typography>
                               </Grid>
                               <Grid item xs={1} md={1} lg={1}>
                                 <DeleteOutlineOutlinedIcon sx={{cursor: "pointer", color:"#CB3234"}}/>

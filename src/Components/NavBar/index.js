@@ -42,7 +42,7 @@ export function NavBar() {
       </Grid>
 
       <ModalCrearPublicacion abrirModal={modalCrearPublicacion} closeModal={setModalCrearPublicacion}/>
-      <SideDrawerConfiguraciones abrir={abrirConfiguraciones} cerrar={setAbrirConfiguraciones}/>
+      {/* <SideDrawerConfiguraciones abrir={abrirConfiguraciones} cerrar={setAbrirConfiguraciones}/> */}
     </>
 
   );

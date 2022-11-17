@@ -8,7 +8,6 @@ export const CrearPost = async (datosCreacion, files, setFile) => {
     formData.append("files", files[index]);
   }
   for (let index = 0; index < datosCreacion.LinesPostDto.length; index++) {
-    //console.log(datosCreacion.LinesPostDto[index])
     formData.append(
       "LinesPostDto[]",
       JSON.stringify(datosCreacion.LinesPostDto[index])
@@ -18,7 +17,6 @@ export const CrearPost = async (datosCreacion, files, setFile) => {
   formData.append("title", datosCreacion.title);
   formData.append("content", datosCreacion.content);
   formData.append("typeNumber", datosCreacion.type);
-  formData.append("categoryNumber", datosCreacion.category);
 
   const body = formData;
   let token = sessionStorage.getItem("token");
