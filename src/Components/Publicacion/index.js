@@ -1,8 +1,8 @@
-import React, {useState,useContext} from 'react'
+import React, {useState,useContext, useEffect} from 'react'
 import {Grid,Container} from '@mui/material';
 import { ContextFilter } from '../../Context/ContextFilter';
 import  ModalVerPublicacionNoPropia from "../ModalVerPublicacionNoPropia";
-
+import { GetPost } from '../../Services/Publicacion/GetPost';
 import './publicacion.css'
 
 export const Publicacion = () => {
@@ -10,10 +10,20 @@ export const Publicacion = () => {
     const {filtroTipoDePublicacion} = useContext(ContextFilter)
     const [modalVerPublicacion, setModalVerPublicacion] = useState(false)
     const [publicacionSeleccionada, setPublicacionSeleccionada] = useState('')
+    const [publicacionesBack, setPublicacionesBack] = useState([])
     const mostrarPublicacion=async(publicacion)=>{
         await setPublicacionSeleccionada(publicacion)
         setModalVerPublicacion(true)        
     }    
+    const taerPublicaciones = ()=>{
+        GetPost() 
+        .then((response)=>{setPublicacionesBack(response)})
+        .catch((err)=>{console.log(err)})    
+    }
+    useEffect(()=>{
+        taerPublicaciones();
+        console.log(publicacionesBack)
+    },[])
   return (
     <div>
         {

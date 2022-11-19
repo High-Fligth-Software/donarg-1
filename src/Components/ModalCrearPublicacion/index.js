@@ -61,8 +61,7 @@ const selectedHandler = (e) => {
   }
   useEffect(  () => {
     traerCategorias()
-    console.log(itemsDonacion)
-  }, [itemsDonacion]);
+  }, []);
 
   const checkMovilidad = (bandera) => {
     if (bandera === 0) {
@@ -82,7 +81,6 @@ const selectedHandler = (e) => {
       setCheckDonacion(true);
     }
   };
-
   const crearPublicacion = () => {
     if(itemsDonacion.length===0){
       setErrorLog("No es posible generar una publicación sin items")
@@ -362,11 +360,11 @@ const selectedHandler = (e) => {
                 </Grid>
                 <Grid item>
                     <Typography variant="body" gutterBottom component="div">
-                            <b>Ya sos parte de la familia donARG</b>
+                            <b>Tu publicación ya fue creada</b>
                     </Typography>
                 </Grid>
                 <Grid item>
-                    <Button fullWidth variant="contained" size="lg"  onClick={() =>{setModalCreacionCorrecta(false)}}>Fantastico señooor</Button>
+                    <Button fullWidth variant="contained" size="lg"  onClick={() =>{setModalCreacionCorrecta(false)}}>Fantastico</Button>
                 </Grid>
             </Grid>
             </div>

@@ -7,7 +7,7 @@ import { Publicacion } from '../../Components/Publicacion';
 import { ComponenteFiltro } from '../../Components/componenteFiltro';
 export const Inicio = () => {
     return (
-        <>
+        <div>
             <NavBar/>
                 <Grid container alignItems="flex-start" justifyContent="space-evenly"  direction="row" style={{marginTop:"0.1%"}} spacing={1}>
                     <Grid item xs={12} md={2} lg={2} >
@@ -26,7 +26,7 @@ export const Inicio = () => {
                                 </Grid>
                         </Grid>                         
                     </Grid>
-                </Grid>                  
-        </>
+                </Grid>
+        </div>
   )
 }
