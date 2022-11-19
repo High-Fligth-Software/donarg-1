@@ -17,7 +17,7 @@ export const CrearPost = async (datosCreacion, files, setFile) => {
   formData.append("title", datosCreacion.title);
   formData.append("content", datosCreacion.content);
   formData.append("typeNumber", datosCreacion.type);
-
+  formData.append("movilityString", datosCreacion.movilityString);
   const body = formData;
   let token = sessionStorage.getItem("token");
   axios.defaults.headers.common = { Authorization: `Bearer ${token}` };

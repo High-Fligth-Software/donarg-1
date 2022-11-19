@@ -89,8 +89,8 @@ const selectedHandler = (e) => {
         LinesPostDto: itemsDonacion,
         title: titulo,
         content: descripcion,
-        type: chekcPeticion ? 1 : 2,
-        
+        type: chekcDonacion ? 1 : 2,
+        movilityString: chekcMovilidadSi ? "true" : "false"
       };
       CrearPost(datosPublicacion, files, setFiles);
       props.closeModal(false);
