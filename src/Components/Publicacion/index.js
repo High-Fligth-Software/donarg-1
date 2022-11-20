@@ -12,8 +12,8 @@ export const Publicacion = () => {
     const [modalVerPublicacion, setModalVerPublicacion] = useState(false)
     const [publicacionSeleccionada, setPublicacionSeleccionada] = useState('')
     const [publicacionesBack, setPublicacionesBack] = useState([])
-    const mostrarPublicacion=async(publicacion)=>{
-        await setPublicacionSeleccionada(publicacion)
+    const mostrarPublicacion=(publicacion)=>{
+        setPublicacionSeleccionada(publicacion)
         setModalVerPublicacion(true)        
     }    
     const taerPublicaciones = ()=>{
@@ -23,7 +23,6 @@ export const Publicacion = () => {
     }
     useEffect(()=>{
         taerPublicaciones();
-        console.log("Recargo publicaciones",reload)
     },[reload])
   return (
     <div>
@@ -31,7 +30,7 @@ export const Publicacion = () => {
             publicacionesBack.map((publicacion) => {
                 return(
                     publicacion.type_id === filtroTipoDePublicacion || filtroTipoDePublicacion=== 0 ? 
-                    <Container className="contenedorDePublicaciones" style={{borderRadius:"25px", marginTop:"2%"}} onClick={()=>{mostrarPublicacion(publicacion)}}>
+                    <Container className="contenedorDePublicaciones" style={{borderRadius:"25px", marginTop:"2%"}} onClick={()=>{mostrarPublicacion(publicacion.id)}}>
                         <Grid container direction="row" spacing={1}>
                             <Grid item xs={4} md={4} lg={4}>
                                 <img src={"data:image/png;base64,"+publicacion.images[0].base} alt="imagen de publicacion"  style={{width: "200px", height: "150px", borderRadius:"25px", border:"2px solid ", color:"#007FFF"}}/>
@@ -61,7 +60,7 @@ export const Publicacion = () => {
                 )
             })
         }
-        {publicacionSeleccionada ?  <ModalVerPublicacionNoPropia publicacion={publicacionSeleccionada} abrirModal={modalVerPublicacion} closeModal={setModalVerPublicacion}/> :  null}
+        {publicacionSeleccionada ?  <ModalVerPublicacionNoPropia publicacionId={publicacionSeleccionada} abrirModal={modalVerPublicacion} closeModal={setModalVerPublicacion}/> :  null}
                
     </div>
   )

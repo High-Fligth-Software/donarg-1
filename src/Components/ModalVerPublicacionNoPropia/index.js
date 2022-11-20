@@ -4,28 +4,36 @@ import {Grid,Typography, Chip, TextField, Button} from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import AddIcon from '@mui/icons-material/Add';
 import HorizontalRuleIcon from '@mui/icons-material/HorizontalRule';
+import { GetPostId } from '../../Services/Publicacion/GetPost';
 const ModalVerPublicacionNoPropia = (props) => {
     const [publicacion,setPublicacion] = useState({})
+    
+    const traerPost = (id)=>{
+        GetPostId(id)        
+        .then((response)=>{setPublicacion(response.data)})
+        .catch((err)=>{console.log(err)}) 
+    }
     useEffect(()=>{
-        setPublicacion(props.publicacion)
-    },[props.publicacion])
+        traerPost(props.publicacionId)
+        console.log(publicacion)
+    },[props.publicacionId])
         return (
             <ModalComponent abrir={props.abrirModal} width={1500} height={600}>
                 <>
                     <Grid container direction="row" justifyContent="flex-start"  sx={{ width: 1600, height: 600}}>
                         <Grid item xs={12} md={3} lg={3} style={{display: 'flex', alignItems: 'center', justifyContent:"center"}}>
-                            <img src={publicacion.urlImagen} alt="imagen del producto" style={{width: "400px", height: "600px", borderRadius:"25px", border:"2px solid "}}/>
+                            <img src={"data:image/png;base64,"+publicacion.images[0].base} alt="imagen del producto" style={{width: "400px", height: "600px", borderRadius:"25px", border:"2px solid "}}/>
                         </Grid>
                         <Grid item xs={7} md={7} lg={7}>
                             <Grid container direction="column" spacing={1}>
                                 <Grid item xs={12} md={12} lg={12} style={{textAlign: 'center'}}>
                                     <Typography variant="h3" gutterBottom component="div">
-                                        <b>{publicacion.titulo}</b>
+                                        <b>{publicacion.title}</b>
                                     </Typography>        
                                 </Grid>
                                 <Grid item xs={12} md={12} lg={12} sx={{marginLeft:"3%"}}>
                                     <Typography variant="h6" gutterBottom component="div">
-                                    {publicacion.descripcion}
+                                    {publicacion.content}
                                     </Typography>        
                                 </Grid>
                                 <Grid item xs={12} md={12} lg={12} sx={{marginLeft:"3%"}}>
@@ -35,21 +43,21 @@ const ModalVerPublicacionNoPropia = (props) => {
                                 </Grid>
                                 <Grid item xs={12} md={12} lg={12} sx={{marginLeft:"3%"}}>
                                     <Grid container direction="row" spacing={1} alignItems="center">
-                                    {publicacion.items ? publicacion.items.map((item)=>{
+                                    {publicacion.lines ? publicacion.lines.map((line)=>{
                                         return(
                                             <>                                        
                                                     <Grid item xs={4} md={4} lg={4}>
                                                         <Grid container direction="row" spacing={1} alignItems="center" >
                                                             <Grid item>
                                                                 <Typography variant="h7" gutterBottom component="div">
-                                                                    {item.objeto}
+                                                                    {line.descripcion}
                                                                 </Typography>
                                                             </Grid>
                                                             <Grid item>
                                                                 <AddIcon/>
                                                             </Grid>
                                                             <Grid item>
-                                                                <Chip label="0" variant="outlined" />
+                                                                <Chip label={""+line.cantidad} variant="outlined" />
                                                             </Grid>
                                                             <Grid item>
                                                                 <HorizontalRuleIcon/>
@@ -63,13 +71,13 @@ const ModalVerPublicacionNoPropia = (props) => {
                                 </Grid>
                                 <Grid item  xs={12} md={12} lg={12} sx={{marginLeft:"3%"}}>
                                     <Typography variant="h6" gutterBottom component="div">
-                                        <b>Cuentale al donante por que mereces esto</b>
+                                       {publicacion.type.id === 1 ? <b>Cuentale al donante por que mereces esto</b>: <b>Contactate con tu beneficiario</b>} 
                                     </Typography>
                                 </Grid>
                                 <Grid item  xs={12} md={12} lg={12} sx={{marginLeft:"3%"}}>
                                     <TextField
-                                    id="descripcionOrganizacion"
-                                    label="Describe tu organización"
+                                    id="contactoLabel"
+                                    label="Cuentanos como ejerces tu solidaridad"
                                     multiline
                                     maxRows={15}
                                     fullWidth
