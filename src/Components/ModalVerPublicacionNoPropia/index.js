@@ -6,7 +6,7 @@ import AddIcon from '@mui/icons-material/Add';
 import HorizontalRuleIcon from '@mui/icons-material/HorizontalRule';
 import { GetPostId } from '../../Services/Publicacion/GetPost';
 const ModalVerPublicacionNoPropia = (props) => {
-    const [publicacion,setPublicacion] = useState({})
+    const [publicacion,setPublicacion] = useState('')
     
     const traerPost = (id)=>{
         GetPostId(id)        
@@ -15,9 +15,11 @@ const ModalVerPublicacionNoPropia = (props) => {
     }
     useEffect(()=>{
         traerPost(props.publicacionId)
-        console.log(publicacion)
+        console.log(props.publicacionId)
     },[props.publicacionId])
         return (
+            <>
+            {publicacion ?
             <ModalComponent abrir={props.abrirModal} width={1500} height={600}>
                 <>
                     <Grid container direction="row" justifyContent="flex-start"  sx={{ width: 1600, height: 600}}>
@@ -99,6 +101,8 @@ const ModalVerPublicacionNoPropia = (props) => {
                     </Grid>
                 </>
             </ModalComponent>
+            :null}
+            </>
           )
     }
 

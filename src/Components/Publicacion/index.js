@@ -10,7 +10,7 @@ export const Publicacion = () => {
     const {filtroTipoDePublicacion} = useContext(ContextFilter)
     const {reload} = useContext(ContextReload)
     const [modalVerPublicacion, setModalVerPublicacion] = useState(false)
-    const [publicacionSeleccionada, setPublicacionSeleccionada] = useState(0)
+    const [publicacionSeleccionada, setPublicacionSeleccionada] = useState('')
     const [publicacionesBack, setPublicacionesBack] = useState([])
     const mostrarPublicacion=(publicacion)=>{
         setPublicacionSeleccionada(publicacion)
@@ -60,7 +60,7 @@ export const Publicacion = () => {
                 )
             })
         }
-        <ModalVerPublicacionNoPropia publicacionId={publicacionSeleccionada} abrirModal={modalVerPublicacion} closeModal={setModalVerPublicacion}/>
+        {publicacionSeleccionada ? <ModalVerPublicacionNoPropia publicacionId={publicacionSeleccionada} abrirModal={modalVerPublicacion} closeModal={setModalVerPublicacion}/> : null}
                
     </div>
   )
