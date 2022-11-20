@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { ContextReload } from "../../Context/ContextReload";
 import { ModalComponent } from "../Modal";
 import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
 import "./modalCrearPublicacion.css";
@@ -36,7 +37,7 @@ export const ModalCrearPublicacion = (props) => {
   const [errorLog, setErrorLog] = useState("")
   const [modalCreacionCorrecta, setModalCreacionCorrecta] = useState(false)
   const [itemsCategorias, setItemsCategorias] = useState([])
-
+  const {setReload, reload} = useContext(ContextReload)
 const selectedHandler = (e) => {
     let files = e.target.files;
     setFiles(files);
@@ -92,9 +93,11 @@ const selectedHandler = (e) => {
         type: chekcDonacion ? 1 : 2,
         movilityString: chekcMovilidadSi ? "true" : "false"
       };
-      CrearPost(datosPublicacion, files, setFiles);
-      props.closeModal(false);
-      setModalCreacionCorrecta(true)
+      CrearPost(datosPublicacion, files, setFiles).then(() =>{
+        props.closeModal(false);
+        setModalCreacionCorrecta(true)
+        setReload(!reload)
+      })
     }
   };
   return (

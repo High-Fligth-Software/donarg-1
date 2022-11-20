@@ -1,4 +1,5 @@
 import React, {useState,useContext, useEffect} from 'react'
+import { ContextReload } from "../../Context/ContextReload";
 import {Grid,Container} from '@mui/material';
 import { ContextFilter } from '../../Context/ContextFilter';
 import  ModalVerPublicacionNoPropia from "../ModalVerPublicacionNoPropia";
@@ -6,8 +7,8 @@ import { GetPost } from '../../Services/Publicacion/GetPost';
 import './publicacion.css'
 
 export const Publicacion = () => {
-    const publicaciones = require('../../Mocks/Publicaciones.json')
     const {filtroTipoDePublicacion} = useContext(ContextFilter)
+    const {reload} = useContext(ContextReload)
     const [modalVerPublicacion, setModalVerPublicacion] = useState(false)
     const [publicacionSeleccionada, setPublicacionSeleccionada] = useState('')
     const [publicacionesBack, setPublicacionesBack] = useState([])
@@ -22,8 +23,8 @@ export const Publicacion = () => {
     }
     useEffect(()=>{
         taerPublicaciones();
-        console.log(publicacionesBack)
-    },[])
+        console.log("Recargo publicaciones",reload)
+    },[reload])
   return (
     <div>
         {

@@ -16,11 +16,13 @@ import {
 import ContextCreateUser from './Context/ContextCreateUser';
 import ContextUser from './Context/ContextUser';
 import ContextFilter from './Context/ContextFilter';
+import ContextReload from './Context/ContextReload';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 document.body.style.backgroundColor = "#eef3f8";
-export const backBasePath = 'https://cf76-2803-9800-9444-8b28-2d66-5259-5923-ec12.ngrok.io'
+export const backBasePath = 'http://localhost:3000'
 root.render(
   <BrowserRouter>
+    <ContextReload>
     <ContextCreateUser>
     <ContextUser>
     <ContextFilter>
@@ -35,6 +37,7 @@ root.render(
     </ContextFilter>
     </ContextUser>
     </ContextCreateUser>
+    </ContextReload>
   </BrowserRouter>
 
 );
