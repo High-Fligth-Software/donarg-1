@@ -4,6 +4,8 @@ import {Grid,Container} from '@mui/material';
 import { ContextFilter } from '../../Context/ContextFilter';
 import  ModalVerPublicacionNoPropia from "../ModalVerPublicacionNoPropia";
 import { GetPost } from '../../Services/Publicacion/GetPost';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import './publicacion.css'
 
 export const Publicacion = () => {
@@ -49,6 +51,9 @@ export const Publicacion = () => {
                                                 {publicacion.author.locality.name}
                                             </Grid>
                                         </Grid>                                        
+                                    </Grid>
+                                    <Grid item xs={12} md={12} lg={12} style={{display:"flex", alignItems:"center"}}>
+                                        <p style={{marginRight:"12px"}}>Movilidad:</p> {publicacion.movility ? <ThumbUpIcon fontSize="small"/> : <ThumbDownIcon fontSize="small"/>}
                                     </Grid>                                   
                                 </Grid>
                             </Grid>
