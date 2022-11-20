@@ -30,12 +30,12 @@ export const ComponenteFiltro = () => {
             setCheckPeticion(true)
             setCheckTodos(false)
             setCheckDonacion(false)
-            setFiltroTipoDePublicacion(1)
+            setFiltroTipoDePublicacion(2)
         }else if(valueCheck===2){
             setCheckDonacion(true)
             setCheckPeticion(false)
             setCheckTodos(false)
-            setFiltroTipoDePublicacion(2)
+            setFiltroTipoDePublicacion(1)
         }
     }
   return (

@@ -10,7 +10,7 @@ export const Publicacion = () => {
     const {filtroTipoDePublicacion} = useContext(ContextFilter)
     const {reload} = useContext(ContextReload)
     const [modalVerPublicacion, setModalVerPublicacion] = useState(false)
-    const [publicacionSeleccionada, setPublicacionSeleccionada] = useState('')
+    const [publicacionSeleccionada, setPublicacionSeleccionada] = useState(0)
     const [publicacionesBack, setPublicacionesBack] = useState([])
     const mostrarPublicacion=(publicacion)=>{
         setPublicacionSeleccionada(publicacion)
@@ -23,13 +23,13 @@ export const Publicacion = () => {
     }
     useEffect(()=>{
         taerPublicaciones();
-    },[reload])
+    },[reload,publicacionSeleccionada])
   return (
     <div>
         {
             publicacionesBack.map((publicacion) => {
                 return(
-                    publicacion.type_id === filtroTipoDePublicacion || filtroTipoDePublicacion=== 0 ? 
+                    publicacion.type.id === filtroTipoDePublicacion || filtroTipoDePublicacion=== 0 ? 
                     <Container className="contenedorDePublicaciones" style={{borderRadius:"25px", marginTop:"2%"}} onClick={()=>{mostrarPublicacion(publicacion.id)}}>
                         <Grid container direction="row" spacing={1}>
                             <Grid item xs={4} md={4} lg={4}>
@@ -60,7 +60,7 @@ export const Publicacion = () => {
                 )
             })
         }
-        {publicacionSeleccionada ?  <ModalVerPublicacionNoPropia publicacionId={publicacionSeleccionada} abrirModal={modalVerPublicacion} closeModal={setModalVerPublicacion}/> :  null}
+        <ModalVerPublicacionNoPropia publicacionId={publicacionSeleccionada} abrirModal={modalVerPublicacion} closeModal={setModalVerPublicacion}/>
                
     </div>
   )
