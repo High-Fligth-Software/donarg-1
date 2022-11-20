@@ -9,29 +9,48 @@ import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import './publicacion.css'
 
 export const Publicacion = () => {
-    const {filtroTipoDePublicacion} = useContext(ContextFilter)
+    const {filtroTipoDePublicacion, filtroMovilidad} = useContext(ContextFilter)
     const {reload} = useContext(ContextReload)
     const [modalVerPublicacion, setModalVerPublicacion] = useState(false)
     const [publicacionSeleccionada, setPublicacionSeleccionada] = useState('')
     const [publicacionesBack, setPublicacionesBack] = useState([])
+    const [allPublicaciones, setAllPublicaciones] = useState([])
     const mostrarPublicacion=(publicacion)=>{
         setPublicacionSeleccionada(publicacion)
         setModalVerPublicacion(true)        
     }    
     const taerPublicaciones = ()=>{
         GetPost() 
-        .then((response)=>{setPublicacionesBack(response)})
-        .catch((err)=>{console.log(err)})    
+        .then((response)=>{setPublicacionesBack(response); setAllPublicaciones(response);})
+        .catch((err)=>{console.log(err)})
+        
+        
+    }
+    const filtrarPublicaciones = ()=>{
+        if(filtroMovilidad){
+           let filtrado = allPublicaciones.filter((element)=>
+                element.movility === true
+            )
+            setPublicacionesBack(filtrado)
+        }else{
+            setPublicacionesBack(allPublicaciones);
+        }
     }
     useEffect(()=>{
-        taerPublicaciones();
+        taerPublicaciones();    
     },[reload,publicacionSeleccionada])
+
+    useEffect(()=>{
+        if(allPublicaciones.length!==0){
+            filtrarPublicaciones(); 
+        }
+    },[filtroMovilidad])
   return (
     <div>
         {
             publicacionesBack.map((publicacion) => {
                 return(
-                    publicacion.type.id === filtroTipoDePublicacion || filtroTipoDePublicacion=== 0 ? 
+                    publicacion.type.id === filtroTipoDePublicacion  || filtroTipoDePublicacion=== 0  ?                     
                     <Container className="contenedorDePublicaciones" style={{borderRadius:"25px", marginTop:"2%"}} onClick={()=>{mostrarPublicacion(publicacion.id)}}>
                         <Grid container direction="row" spacing={1}>
                             <Grid item xs={4} md={4} lg={4}>

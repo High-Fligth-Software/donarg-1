@@ -6,7 +6,7 @@ export const ComponenteFiltro = () => {
     const [chekcTodos, setCheckTodos]=useState(true)
     const [chekcDonacion, setCheckDonacion]=useState(false)
     const [chekcPeticion, setCheckPeticion]=useState(false)
-    const {setFiltroTipoDePublicacion} = useContext(ContextFilter)
+    const {setFiltroTipoDePublicacion, setFiltroMovilidad,filtroMovilidad} = useContext(ContextFilter)
     const nombreLocalidades = [
         'Todas',
         'San Miguel de Tucumán',
@@ -88,10 +88,7 @@ export const ComponenteFiltro = () => {
                 </Typography> 
             </Grid>
             <Grid item>
-                <FormControlLabel control={<Checkbox defaultChecked />} label="No" />
-            </Grid>
-            <Grid item>
-                <FormControlLabel control={<Checkbox />} label="Si" />
+                <FormControlLabel control={<Checkbox checked={filtroMovilidad}/>} label="Si" onChange={()=>{setFiltroMovilidad(!filtroMovilidad)}}/>
             </Grid>
         </Grid>        
     </Container>

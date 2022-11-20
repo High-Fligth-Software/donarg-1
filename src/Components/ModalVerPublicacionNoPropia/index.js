@@ -47,8 +47,8 @@ const ModalVerPublicacionNoPropia = (props) => {
                                             </Typography>
                                         </Grid>
                                         <Grid item xs={2} md={2} lg={2}>
-                                            <Typography variant="h6" gutterBottom component="div">
-                                                <b>Movilidad:</b> {publicacion.movility ? <ThumbUpIcon fontSize="small"/> : <ThumbDownIcon fontSize="small"/>}
+                                            <Typography variant="h6" gutterBottom component="div" style={{display:"flex", alignItems: "center"}}>
+                                                <b>Movilidad:</b> {publicacion.movility ? <ThumbUpIcon fontSize="small"  style={{marginLeft:"2%"}}/> : <ThumbDownIcon fontSize="small"  style={{marginLeft:"2%"}}/>}
                                             </Typography>   
                                         </Grid>
                                     </Grid>         
