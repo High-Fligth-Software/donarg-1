@@ -5,6 +5,8 @@ import CloseIcon from '@mui/icons-material/Close';
 import AddIcon from '@mui/icons-material/Add';
 import HorizontalRuleIcon from '@mui/icons-material/HorizontalRule';
 import { GetPostId } from '../../Services/Publicacion/GetPost';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 const ModalVerPublicacionNoPropia = (props) => {
     const [publicacion,setPublicacion] = useState('')
     
@@ -38,11 +40,19 @@ const ModalVerPublicacionNoPropia = (props) => {
                                     {publicacion.content}
                                     </Typography>        
                                 </Grid>
-                                <Grid item xs={12} md={12} lg={12} sx={{marginLeft:"3%"}}>
-                                    <Typography variant="h6" gutterBottom component="div">
-                                        <b>Indque que items desea solicitar y su cantidad</b>
-                                    </Typography>        
-                                </Grid>
+                                <Grid container direction="row" style={{marginLeft:"3%"}}>
+                                        <Grid item xs={9} md={9} lg={9}>
+                                            <Typography variant="h6" gutterBottom component="div">
+                                                <b>Indque que items desea solicitar y su cantidad</b>
+                                            </Typography>
+                                        </Grid>
+                                        <Grid item xs={2} md={2} lg={2}>
+                                            <Typography variant="h6" gutterBottom component="div">
+                                                <b>Movilidad:</b> {publicacion.movility ? <ThumbUpIcon fontSize="small"/> : <ThumbDownIcon fontSize="small"/>}
+                                            </Typography>   
+                                        </Grid>
+                                    </Grid>         
+                            </Grid>
                                 <Grid item xs={12} md={12} lg={12} sx={{marginLeft:"3%"}}>
                                     <Grid container direction="row" spacing={1} alignItems="center">
                                     {publicacion.lines ? publicacion.lines.map((line)=>{
@@ -71,7 +81,7 @@ const ModalVerPublicacionNoPropia = (props) => {
                                     }):null}
                                     </Grid>   
                                 </Grid>
-                                <Grid item  xs={12} md={12} lg={12} sx={{marginLeft:"3%"}}>
+                                <Grid item  xs={12} md={12} lg={12} sx={{marginLeft:"3%", marginTop:"5%"}}>
                                     <Typography variant="h6" gutterBottom component="div">
                                        {publicacion.type.id === 1 ? <b>Cuentale al donante por que mereces esto</b>: <b>Contactate con tu beneficiario</b>} 
                                     </Typography>
@@ -90,7 +100,7 @@ const ModalVerPublicacionNoPropia = (props) => {
                                     <Button fullWidth variant="contained" size="lg" onClick={() =>{ }}>Agregar</Button>
                                 </Grid>
                             </Grid>
-                        </Grid>
+
                         <Grid item xs={1} md={1} lg={1} style={{display: 'flex', justifyContent: 'flex-end'}}>
                             <Grid container direction="column" justifyContent="space-between" alignItems="flex-end">
                                 <Grid item>
